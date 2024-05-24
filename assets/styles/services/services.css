@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.regression__button__link, .menu__button {
+.regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link, .menu__button {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -17,7 +17,6 @@
 .header {
   height: auto;
   padding: 10px 0;
-  margin-bottom: 50px;
   font-family: "IBM Plex Sans", sans-serif;
   box-shadow: 0px 3px 9px 0px rgba(57, 20, 0, 0.08);
 }
@@ -182,7 +181,7 @@
   vertical-align: top;
   width: 15px;
   height: 15px;
-  margin-left: 5px;
+  padding-left: 5px;
   font-style: normal;
   font-size: 16px;
   color: #4d4f5e;
@@ -286,7 +285,7 @@
   }
   .burger-menu .menu__item {
     display: block;
-    padding-right: 24px;
+    margin-right: 24px;
     text-align: end;
     transition-duration: 0.25s;
   }
@@ -306,7 +305,7 @@
 }
 
 .main__title {
-  margin: 50px 10%;
+  margin: 100px 10%;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -322,7 +321,7 @@
 }
 @media (max-width: 1024px) {
   .main__title {
-    margin: 25px 5%;
+    margin: 50px 5%;
   }
 }
 
@@ -331,7 +330,17 @@
   border: 1px solid #4d4f5e;
 }
 
-.regression__title {
+.regression, .birthday, .numerology, .combo, .legalization {
+  width: 80%;
+  margin: 0 10% 100px;
+}
+@media (max-width: 1024px) {
+  .regression, .birthday, .numerology, .combo, .legalization {
+    width: 90%;
+    margin: 0 5% 50px;
+  }
+}
+.regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -344,24 +353,22 @@
   text-align: left;
 }
 @media (max-width: 767px) {
-  .regression__title {
+  .regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
     font-size: 32px;
     line-height: 120%;
   }
 }
 @media (max-width: 767px) {
-  .regression__title {
+  .regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
     font-size: 24px;
     line-height: 20px;
   }
 }
-.regression__button {
+.regression__button, .birthday__button, .numerology__button, .combo__button, .legalization__button {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 50px;
 }
-.regression__button__link {
+.regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,18 +381,28 @@
   border-radius: 50px;
 }
 @media (max-width: 1024px) {
-  .regression__button__link {
+  .regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
     width: 300px;
     height: 80px;
     font-size: 20px;
   }
 }
 @media (max-width: 767px) {
-  .regression__button__link {
+  .regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
     width: 250px;
     height: 60px;
     font-size: 16px;
   }
+}
+
+.legalization__link {
+  color: #ffffff;
+  background-color: #4d4f5e;
+}
+
+.numerology__link {
+  color: #ffffff;
+  background-color: #4d4f5e;
 }
 
 .footer {
