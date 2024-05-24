@@ -522,6 +522,14 @@
     white-space: pre;
   }
 }
+.footer__title .br {
+  display: none;
+}
+@media (max-width: 767px) {
+  .footer__title .br {
+    display: inline;
+  }
+}
 .footer__buttons {
   display: flex;
   justify-content: center;
