@@ -315,7 +315,7 @@
                     row-gap: 50px;
                 }
             }
-    }
+        }
     &__paragraph{
         display: flex;
         align-items: center;
@@ -340,8 +340,15 @@
             }
             &--middle{
                 background: $bg-color-light;
+                &:nth-child(2){
                 @media (max-width: $tablet) {
                     background: $text-light; 
+                    }
+                }
+            }
+            &--last:nth-child(1){
+                @media (max-width: $tablet) {
+                    background: $bg-color-light;
                 }
             }
     }

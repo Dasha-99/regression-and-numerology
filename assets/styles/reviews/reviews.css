@@ -419,8 +419,13 @@
   background: rgba(222, 212, 203, 0.4);
 }
 @media (max-width: 1024px) {
-  .content__paragraph--middle {
+  .content__paragraph--middle:nth-child(2) {
     background: #ffffff;
+  }
+}
+@media (max-width: 1024px) {
+  .content__paragraph--last:nth-child(1) {
+    background: rgba(222, 212, 203, 0.4);
   }
 }
 
