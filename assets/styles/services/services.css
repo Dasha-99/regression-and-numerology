@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.regression__link, .menu__button {
+.regression__button__link, .menu__button {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -331,37 +331,60 @@
   border: 1px solid #4d4f5e;
 }
 
+.regression__title {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 36px;
+  line-height: 42px;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .regression__title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 767px) {
+  .regression__title {
+    font-size: 24px;
+    line-height: 20px;
+  }
+}
 .regression__button {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-bottom: 50px;
 }
-.regression__link {
+.regression__button__link {
   display: flex;
   justify-content: center;
   align-items: center;
-  -moz-column-gap: 35px;
-       column-gap: 35px;
-  width: 315px;
+  width: 400px;
   height: 101px;
   text-decoration: none;
-  color: #ffffff;
+  color: #3d3f4e;
   background-color: rgba(222, 212, 203, 0.4);
-  border: 1px solid #4d4f5e;
+  border: 3px solid #4d4f5e;
   border-radius: 50px;
 }
 @media (max-width: 1024px) {
-  .regression__link {
-    width: 260px;
+  .regression__button__link {
+    width: 300px;
     height: 80px;
     font-size: 20px;
   }
 }
 @media (max-width: 767px) {
-  .regression__link {
-    width: 200px;
+  .regression__button__link {
+    width: 250px;
     height: 60px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 

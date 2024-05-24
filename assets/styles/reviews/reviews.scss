@@ -4,7 +4,6 @@
 .header {
     height: auto;
     padding: 10px 0;
-    margin-bottom: 50px;
     font-family: $font-family;
     box-shadow: $header-shadow;
     @media (max-width: $tablet) {
@@ -266,7 +265,7 @@
 
 .main {
     &__title {
-        margin: 50px 10%;
+        margin: 100px 10%;
         @include title;
         @media (max-width: $tablet) {
             margin: 25px 5%;
@@ -398,7 +397,6 @@
     }
 
 .footer {
-    padding-top: 50px;
     @include footer-container;
     @media (max-width: $mobile) {
         padding-top: 25px;
