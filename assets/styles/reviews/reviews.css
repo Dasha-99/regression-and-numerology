@@ -321,7 +321,7 @@
 }
 @media (max-width: 1024px) {
   .main__title {
-    margin: 25px 5%;
+    margin: 50px 5%;
   }
 }
 
@@ -519,7 +519,6 @@
   .footer__title {
     font-size: 28px;
     line-height: 120%;
-    white-space: pre;
   }
 }
 .footer__title .br {

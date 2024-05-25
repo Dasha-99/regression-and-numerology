@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link, .menu__button {
+.regression__link, .birthday__link, .combo__link, .legalization__link, .numerology .numerology-express__link, .numerology .numerology-full__link, .menu__button {
   font-family: "IBM Plex Sans", sans-serif;
   font-weight: 700;
   font-size: 24px;
@@ -327,10 +327,19 @@
 
 .line {
   width: 100%;
+  margin-bottom: 100px;
   border: 1px solid #4d4f5e;
+}
+@media (max-width: 1024px) {
+  .line {
+    margin-bottom: 50px;
+  }
 }
 
 .regression, .birthday, .numerology, .combo, .legalization {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: stretch;
   width: 80%;
   margin: 0 10% 100px;
 }
@@ -340,7 +349,8 @@
     margin: 0 5% 50px;
   }
 }
-.regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
+.regression__title, .birthday__title, .numerology .numerology-express__title, .numerology .numerology-full__title, .numerology__title, .combo__title, .legalization__title {
+  height: 100px;
   font-size: 48px;
   line-height: 108%;
   font-weight: 500;
@@ -351,24 +361,224 @@
   line-height: 42px;
   font-family: "IBM Plex Sans", sans-serif;
   text-align: left;
+  text-decoration: underline;
 }
 @media (max-width: 767px) {
-  .regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
+  .regression__title, .birthday__title, .numerology .numerology-express__title, .numerology .numerology-full__title, .numerology__title, .combo__title, .legalization__title {
     font-size: 32px;
     line-height: 120%;
   }
 }
-@media (max-width: 767px) {
-  .regression__title, .birthday__title, .numerology__title, .combo__title, .legalization__title {
+@media (max-width: 1024px) {
+  .regression__title, .birthday__title, .numerology .numerology-express__title, .numerology .numerology-full__title, .numerology__title, .combo__title, .legalization__title {
+    height: 50px;
     font-size: 24px;
     line-height: 20px;
   }
 }
-.regression__button, .birthday__button, .numerology__button, .combo__button, .legalization__button {
+.regression__services, .numerology__services, .legalization__services {
+  display: grid;
+  grid-template-areas: "description description description" "duration session-price package-price";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr min-content;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  row-gap: 50px;
+  justify-content: stretch;
+  margin-bottom: 50px;
+}
+@media (max-width: 1024px) {
+  .regression__services, .numerology__services, .legalization__services {
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+    row-gap: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .regression__services, .numerology__services, .legalization__services {
+    grid-template-areas: "description description" "duration session-price" "package-price package-price";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    padding-top: 25px;
+  }
+}
+.regression .reg-description, .birthday .reg-description, .birthday .session-one, .birthday .package-price, .birthday .session-two, .numerology .reg-description, .combo .reg-description, .legalization .reg-description, .legalization .leg-description, .numerology .leg-description, .numerology .numerology-express .description, .numerology .numerology-full .description, .regression .reg-package-price, .birthday .reg-package-price, .numerology .reg-package-price, .combo .reg-package-price, .legalization .reg-package-price, .legalization .leg-package-price, .numerology .leg-package-price, .regression .reg-session-price, .birthday .reg-session-price, .numerology .reg-session-price, .combo .reg-session-price, .legalization .reg-session-price, .legalization .leg-session-price, .numerology .leg-session-price, .numerology .numerology-full .description .session-price, .numerology .numerology-express .session-price, .numerology .numerology-full .session-price, .regression .reg-duration, .birthday .reg-duration, .numerology .reg-duration, .combo .reg-duration, .legalization .reg-duration, .legalization .leg-duration, .numerology .leg-duration {
+  grid-area: description;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  padding: 30px 30px 40px;
+  background-color: #ded4cb;
+  border: 3px solid #4d4f5e;
+  border-radius: 5px;
+}
+@media (max-width: 767px) {
+  .regression .reg-description, .birthday .reg-description, .birthday .session-one, .birthday .package-price, .birthday .session-two, .numerology .reg-description, .combo .reg-description, .legalization .reg-description, .legalization .leg-description, .numerology .leg-description, .numerology .numerology-express .description, .numerology .numerology-full .description, .regression .reg-package-price, .birthday .reg-package-price, .numerology .reg-package-price, .combo .reg-package-price, .legalization .reg-package-price, .legalization .leg-package-price, .numerology .leg-package-price, .regression .reg-session-price, .birthday .reg-session-price, .numerology .reg-session-price, .combo .reg-session-price, .legalization .reg-session-price, .legalization .leg-session-price, .numerology .leg-session-price, .numerology .numerology-full .description .session-price, .numerology .numerology-express .session-price, .numerology .numerology-full .session-price, .regression .reg-duration, .birthday .reg-duration, .numerology .reg-duration, .combo .reg-duration, .legalization .reg-duration, .legalization .leg-duration, .numerology .leg-duration {
+    padding: 10px 10px 20px;
+  }
+}
+.regression .reg-description__title, .birthday .reg-description__title, .birthday .package-price__title, .birthday .session-two__paragraph, .birthday .session-one__paragraph, .numerology .reg-description__title, .combo .reg-description__title, .legalization .reg-description__title, .legalization .leg-description__title, .numerology .leg-description__title, .numerology .numerology-express .description__title, .numerology .numerology-full .description__title, .regression .reg-package-price__title, .birthday .reg-package-price__title, .numerology .reg-package-price__title, .combo .reg-package-price__title, .legalization .reg-package-price__title, .legalization .leg-package-price__title, .numerology .leg-package-price__title, .regression .reg-session-price__title, .birthday .reg-session-price__title, .numerology .reg-session-price__title, .combo .reg-session-price__title, .legalization .reg-session-price__title, .legalization .leg-session-price__title, .numerology .leg-session-price__title, .numerology .numerology-full .description .session-price__title, .numerology .numerology-express .session-price__title, .numerology .numerology-full .session-price__title, .regression .reg-duration__title, .birthday .reg-duration__title, .numerology .reg-duration__title, .combo .reg-duration__title, .legalization .reg-duration__title, .legalization .leg-duration__title, .numerology .leg-duration__title {
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+  margin-bottom: 25px;
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 28px;
+  line-height: 40px;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .regression .reg-description__title, .birthday .reg-description__title, .birthday .package-price__title, .birthday .session-two__paragraph, .birthday .session-one__paragraph, .numerology .reg-description__title, .combo .reg-description__title, .legalization .reg-description__title, .legalization .leg-description__title, .numerology .leg-description__title, .numerology .numerology-express .description__title, .numerology .numerology-full .description__title, .regression .reg-package-price__title, .birthday .reg-package-price__title, .numerology .reg-package-price__title, .combo .reg-package-price__title, .legalization .reg-package-price__title, .legalization .leg-package-price__title, .numerology .leg-package-price__title, .regression .reg-session-price__title, .birthday .reg-session-price__title, .numerology .reg-session-price__title, .combo .reg-session-price__title, .legalization .reg-session-price__title, .legalization .leg-session-price__title, .numerology .leg-session-price__title, .numerology .numerology-full .description .session-price__title, .numerology .numerology-express .session-price__title, .numerology .numerology-full .session-price__title, .regression .reg-duration__title, .birthday .reg-duration__title, .numerology .reg-duration__title, .combo .reg-duration__title, .legalization .reg-duration__title, .legalization .leg-duration__title, .numerology .leg-duration__title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1024px) {
+  .regression .reg-description__title, .birthday .reg-description__title, .birthday .package-price__title, .birthday .session-two__paragraph, .birthday .session-one__paragraph, .numerology .reg-description__title, .combo .reg-description__title, .legalization .reg-description__title, .legalization .leg-description__title, .numerology .leg-description__title, .numerology .numerology-express .description__title, .numerology .numerology-full .description__title, .regression .reg-package-price__title, .birthday .reg-package-price__title, .numerology .reg-package-price__title, .combo .reg-package-price__title, .legalization .reg-package-price__title, .legalization .leg-package-price__title, .numerology .leg-package-price__title, .regression .reg-session-price__title, .birthday .reg-session-price__title, .numerology .reg-session-price__title, .combo .reg-session-price__title, .legalization .reg-session-price__title, .legalization .leg-session-price__title, .numerology .leg-session-price__title, .numerology .numerology-full .description .session-price__title, .numerology .numerology-express .session-price__title, .numerology .numerology-full .session-price__title, .regression .reg-duration__title, .birthday .reg-duration__title, .numerology .reg-duration__title, .combo .reg-duration__title, .legalization .reg-duration__title, .legalization .leg-duration__title, .numerology .leg-duration__title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+.regression .reg-description__list, .birthday .reg-description__list, .numerology .reg-description__list, .combo .reg-description__list, .legalization .reg-description__list, .legalization .leg-description__list, .numerology .leg-description__list, .numerology .numerology-express .description__list, .numerology .numerology-full .description__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  row-gap: 20px;
+  width: 100%;
+  height: auto;
+}
+.regression .reg-description__item, .birthday .reg-description__item, .numerology .reg-description__item, .combo .reg-description__item, .legalization .reg-description__item, .legalization .leg-description__item, .numerology .leg-description__item, .numerology .numerology-express .description__item, .numerology .numerology-full .description__item {
+  display: flex;
+  width: calc(50% - 15px);
+  font-size: 24px;
+  line-height: 133%;
+  font-weight: 400;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #3d3f4e;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .regression .reg-description__item, .birthday .reg-description__item, .numerology .reg-description__item, .combo .reg-description__item, .legalization .reg-description__item, .legalization .leg-description__item, .numerology .leg-description__item, .numerology .numerology-express .description__item, .numerology .numerology-full .description__item {
+    font-size: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .regression .reg-description__item, .birthday .reg-description__item, .numerology .reg-description__item, .combo .reg-description__item, .legalization .reg-description__item, .legalization .leg-description__item, .numerology .leg-description__item, .numerology .numerology-express .description__item, .numerology .numerology-full .description__item {
+    width: 100%;
+  }
+}
+.regression .reg-description__item::before, .birthday .reg-description__item::before, .numerology .reg-description__item::before, .combo .reg-description__item::before, .legalization .reg-description__item::before, .legalization .leg-description__item::before, .numerology .leg-description__item::before, .numerology .numerology-express .description__item::before, .numerology .numerology-full .description__item::before {
+  content: "• ";
+}
+.regression .reg-duration, .birthday .reg-duration, .numerology .reg-duration, .combo .reg-duration, .legalization .reg-duration, .legalization .leg-duration, .numerology .leg-duration, .regression .reg-package-price, .birthday .reg-package-price, .numerology .reg-package-price, .combo .reg-package-price, .legalization .reg-package-price, .legalization .leg-package-price, .numerology .leg-package-price, .regression .reg-session-price, .birthday .reg-session-price, .numerology .reg-session-price, .combo .reg-session-price, .legalization .reg-session-price, .legalization .leg-session-price, .numerology .leg-session-price, .numerology .numerology-full .description .session-price, .numerology .numerology-express .session-price, .numerology .numerology-full .session-price {
+  grid-area: duration;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 20px;
+  height: 100%;
+}
+.regression .reg-duration__paragraph, .birthday .reg-duration__paragraph, .birthday .package-price__paragraph, .numerology .reg-duration__paragraph, .combo .reg-duration__paragraph, .legalization .reg-duration__paragraph, .legalization .leg-duration__paragraph, .numerology .leg-duration__paragraph, .regression .reg-session-price__paragraph, .birthday .reg-session-price__paragraph, .numerology .reg-session-price__paragraph, .combo .reg-session-price__paragraph, .legalization .reg-session-price__paragraph, .legalization .leg-session-price__paragraph, .numerology .leg-session-price__paragraph, .numerology .numerology-full .description .session-price__paragraph, .numerology .numerology-express .session-price__paragraph, .numerology .numerology-full .session-price__paragraph, .regression .reg-package-price__paragraph, .birthday .reg-package-price__paragraph, .numerology .reg-package-price__paragraph, .combo .reg-package-price__paragraph, .legalization .reg-package-price__paragraph, .legalization .leg-package-price__paragraph, .numerology .leg-package-price__paragraph {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  text-align: left;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+@media (max-width: 767px) {
+  .regression .reg-duration__paragraph, .birthday .reg-duration__paragraph, .birthday .package-price__paragraph, .numerology .reg-duration__paragraph, .combo .reg-duration__paragraph, .legalization .reg-duration__paragraph, .legalization .leg-duration__paragraph, .numerology .leg-duration__paragraph, .regression .reg-session-price__paragraph, .birthday .reg-session-price__paragraph, .numerology .reg-session-price__paragraph, .combo .reg-session-price__paragraph, .legalization .reg-session-price__paragraph, .legalization .leg-session-price__paragraph, .numerology .leg-session-price__paragraph, .numerology .numerology-full .description .session-price__paragraph, .numerology .numerology-express .session-price__paragraph, .numerology .numerology-full .session-price__paragraph, .regression .reg-package-price__paragraph, .birthday .reg-package-price__paragraph, .numerology .reg-package-price__paragraph, .combo .reg-package-price__paragraph, .legalization .reg-package-price__paragraph, .legalization .leg-package-price__paragraph, .numerology .leg-package-price__paragraph {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1024px) {
+  .regression .reg-duration__paragraph, .birthday .reg-duration__paragraph, .birthday .package-price__paragraph, .numerology .reg-duration__paragraph, .combo .reg-duration__paragraph, .legalization .reg-duration__paragraph, .legalization .leg-duration__paragraph, .numerology .leg-duration__paragraph, .regression .reg-session-price__paragraph, .birthday .reg-session-price__paragraph, .numerology .reg-session-price__paragraph, .combo .reg-session-price__paragraph, .legalization .reg-session-price__paragraph, .legalization .leg-session-price__paragraph, .numerology .leg-session-price__paragraph, .numerology .numerology-full .description .session-price__paragraph, .numerology .numerology-express .session-price__paragraph, .numerology .numerology-full .session-price__paragraph, .regression .reg-package-price__paragraph, .birthday .reg-package-price__paragraph, .numerology .reg-package-price__paragraph, .combo .reg-package-price__paragraph, .legalization .reg-package-price__paragraph, .legalization .leg-package-price__paragraph, .numerology .leg-package-price__paragraph {
+    font-size: 32px;
+  }
+}
+.regression .reg-duration__paragraph::after, .birthday .reg-duration__paragraph::after, .birthday .package-price__paragraph::after, .numerology .reg-duration__paragraph::after, .combo .reg-duration__paragraph::after, .legalization .reg-duration__paragraph::after, .legalization .leg-duration__paragraph::after, .numerology .leg-duration__paragraph::after, .regression .reg-session-price__paragraph::after, .birthday .reg-session-price__paragraph::after, .numerology .reg-session-price__paragraph::after, .combo .reg-session-price__paragraph::after, .legalization .reg-session-price__paragraph::after, .legalization .leg-session-price__paragraph::after, .numerology .leg-session-price__paragraph::after, .numerology .numerology-full .description .session-price__paragraph::after, .numerology .numerology-express .session-price__paragraph::after, .numerology .numerology-full .session-price__paragraph::after, .regression .reg-package-price__paragraph::after, .birthday .reg-package-price__paragraph::after, .numerology .reg-package-price__paragraph::after, .combo .reg-package-price__paragraph::after, .legalization .reg-package-price__paragraph::after, .legalization .leg-package-price__paragraph::after, .numerology .leg-package-price__paragraph::after {
+  content: " часа";
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .regression .reg-duration__paragraph::after, .birthday .reg-duration__paragraph::after, .birthday .package-price__paragraph::after, .numerology .reg-duration__paragraph::after, .combo .reg-duration__paragraph::after, .legalization .reg-duration__paragraph::after, .legalization .leg-duration__paragraph::after, .numerology .leg-duration__paragraph::after, .regression .reg-session-price__paragraph::after, .birthday .reg-session-price__paragraph::after, .numerology .reg-session-price__paragraph::after, .combo .reg-session-price__paragraph::after, .legalization .reg-session-price__paragraph::after, .legalization .leg-session-price__paragraph::after, .numerology .leg-session-price__paragraph::after, .numerology .numerology-full .description .session-price__paragraph::after, .numerology .numerology-express .session-price__paragraph::after, .numerology .numerology-full .session-price__paragraph::after, .regression .reg-package-price__paragraph::after, .birthday .reg-package-price__paragraph::after, .numerology .reg-package-price__paragraph::after, .combo .reg-package-price__paragraph::after, .legalization .reg-package-price__paragraph::after, .legalization .leg-package-price__paragraph::after, .numerology .leg-package-price__paragraph::after {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.regression .reg-session-price, .birthday .reg-session-price, .numerology .reg-session-price, .combo .reg-session-price, .legalization .reg-session-price, .legalization .leg-session-price, .numerology .leg-session-price, .numerology .numerology-full .description .session-price, .numerology .numerology-express .session-price, .numerology .numerology-full .session-price {
+  grid-area: session-price;
+}
+.regression .reg-session-price__paragraph::after, .birthday .reg-session-price__paragraph::after, .numerology .reg-session-price__paragraph::after, .combo .reg-session-price__paragraph::after, .legalization .reg-session-price__paragraph::after, .legalization .leg-session-price__paragraph::after, .numerology .leg-session-price__paragraph::after, .numerology .numerology-full .description .session-price__paragraph::after, .numerology .numerology-express .session-price__paragraph::after, .numerology .numerology-full .session-price__paragraph::after, .regression .reg-package-price__paragraph::after, .birthday .reg-package-price__paragraph::after, .numerology .reg-package-price__paragraph::after, .combo .reg-package-price__paragraph::after, .legalization .reg-package-price__paragraph::after, .legalization .leg-package-price__paragraph::after, .numerology .leg-package-price__paragraph::after {
+  content: " руб";
+}
+.regression .reg-package-price, .birthday .reg-package-price, .numerology .reg-package-price, .combo .reg-package-price, .legalization .reg-package-price, .legalization .leg-package-price, .numerology .leg-package-price {
+  grid-area: package-price;
+}
+.regression .reg-package-price__paragraph::after, .birthday .reg-package-price__paragraph::after, .numerology .reg-package-price__paragraph::after, .combo .reg-package-price__paragraph::after, .legalization .reg-package-price__paragraph::after, .legalization .leg-package-price__paragraph::after, .numerology .leg-package-price__paragraph::after {
+  content: "руб";
+}
+.regression .reg-package-price__paragraph--last, .birthday .reg-package-price__paragraph--last, .numerology .reg-package-price__paragraph--last, .combo .reg-package-price__paragraph--last, .legalization .reg-package-price__paragraph--last {
+  align-self: flex-end;
+  text-align: right;
+  text-decoration: line-through;
+}
+.regression .reg-package-price__paragraph--last::before, .birthday .reg-package-price__paragraph--last::before, .numerology .reg-package-price__paragraph--last::before, .combo .reg-package-price__paragraph--last::before, .legalization .reg-package-price__paragraph--last::before {
+  content: "вместо";
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .regression .reg-package-price__paragraph--last::before, .birthday .reg-package-price__paragraph--last::before, .numerology .reg-package-price__paragraph--last::before, .combo .reg-package-price__paragraph--last::before, .legalization .reg-package-price__paragraph--last::before {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.regression .reg-package-price__paragraph--last::after, .birthday .reg-package-price__paragraph--last::after, .numerology .reg-package-price__paragraph--last::after, .combo .reg-package-price__paragraph--last::after, .legalization .reg-package-price__paragraph--last::after {
+  content: "";
+}
+.regression__button, .birthday__button, .combo__button, .legalization__button, .numerology .numerology-express__button, .numerology .numerology-full__button {
   display: flex;
   justify-content: center;
+  min-height: 100px;
 }
-.regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
+@media (max-width: 1024px) {
+  .regression__button, .birthday__button, .combo__button, .legalization__button, .numerology .numerology-express__button, .numerology .numerology-full__button {
+    min-height: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .regression__button, .birthday__button, .combo__button, .legalization__button, .numerology .numerology-express__button, .numerology .numerology-full__button {
+    min-height: 50px;
+  }
+}
+.regression__link, .birthday__link, .combo__link, .legalization__link, .numerology .numerology-express__link, .numerology .numerology-full__link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,35 +586,437 @@
   height: 101px;
   text-decoration: none;
   color: #3d3f4e;
-  background-color: rgba(222, 212, 203, 0.4);
+  background-color: #ded4cb;
   border: 3px solid #4d4f5e;
   border-radius: 50px;
 }
 @media (max-width: 1024px) {
-  .regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
+  .regression__link, .birthday__link, .combo__link, .legalization__link, .numerology .numerology-express__link, .numerology .numerology-full__link {
     width: 300px;
     height: 80px;
     font-size: 20px;
   }
 }
 @media (max-width: 767px) {
-  .regression__link, .birthday__link, .numerology__link, .combo__link, .legalization__link {
+  .regression__link, .birthday__link, .combo__link, .legalization__link, .numerology .numerology-express__link, .numerology .numerology-full__link {
     width: 250px;
     height: 60px;
     font-size: 16px;
   }
 }
 
-.legalization__link {
+.legalization .leg-description, .numerology .leg-description, .numerology .numerology-express .description, .numerology .numerology-full .description {
+  background-color: #4d4f5e;
+}
+.legalization .leg-description__title, .numerology .leg-description__title, .numerology .numerology-express .description__title, .numerology .numerology-full .description__title {
+  color: #ffffff;
+}
+.legalization .leg-description__item, .numerology .leg-description__item, .numerology .numerology-express .description__item, .numerology .numerology-full .description__item {
+  color: #ffffff;
+}
+.legalization .leg-description__item::before, .numerology .leg-description__item::before, .numerology .numerology-express .description__item::before, .numerology .numerology-full .description__item::before {
+  content: "• ";
+}
+.legalization .leg-duration, .numerology .leg-duration {
+  color: #ffffff;
+  background-color: #4d4f5e;
+}
+.legalization .leg-duration__title, .numerology .leg-duration__title {
+  color: #ffffff;
+}
+.legalization .leg-duration__paragraph, .numerology .leg-duration__paragraph {
+  color: #ffffff;
+}
+.legalization .leg-duration__paragraph::after, .numerology .leg-duration__paragraph::after {
+  content: " минут";
+}
+.legalization .leg-session-price, .numerology .leg-session-price, .numerology .numerology-full .description .session-price, .numerology .numerology-express .session-price, .numerology .numerology-full .session-price {
+  background-color: #4d4f5e;
+}
+.legalization .leg-session-price__title, .numerology .leg-session-price__title, .numerology .numerology-full .description .session-price__title, .numerology .numerology-express .session-price__title, .numerology .numerology-full .session-price__title {
+  color: #ffffff;
+}
+.legalization .leg-session-price__paragraph, .numerology .leg-session-price__paragraph, .numerology .numerology-full .description .session-price__paragraph, .numerology .numerology-express .session-price__paragraph, .numerology .numerology-full .session-price__paragraph {
+  color: #ffffff;
+}
+.legalization .leg-package-price, .numerology .leg-package-price {
+  background-color: #4d4f5e;
+}
+.legalization .leg-package-price__title, .numerology .leg-package-price__title {
+  color: #ffffff;
+}
+.legalization .leg-package-price__paragraph, .numerology .leg-package-price__paragraph {
+  color: #ffffff;
+}
+.legalization .leg-package-price__paragraph--last, .numerology .leg-package-price__paragraph--last {
+  align-self: flex-end;
+  text-align: right;
+  text-decoration: line-through;
+}
+.legalization .leg-package-price__paragraph--last::after, .numerology .leg-package-price__paragraph--last::after {
+  content: "";
+}
+.legalization .leg-package-price__paragraph--last::before, .numerology .leg-package-price__paragraph--last::before {
+  content: "вместо";
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .legalization .leg-package-price__paragraph--last::before, .numerology .leg-package-price__paragraph--last::before {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.legalization__link, .numerology .numerology-express__link, .numerology .numerology-full__link {
   color: #ffffff;
   background-color: #4d4f5e;
 }
 
-.numerology__link {
-  color: #ffffff;
-  background-color: #4d4f5e;
+.combo__services {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  padding: 30px 30px 40px;
+  margin-bottom: 50px;
+  background-color: #ded4cb;
+  border: 3px solid #4d4f5e;
+  border-radius: 5px;
 }
-
+@media (max-width: 1024px) {
+  .combo__services {
+    margin-bottom: 25px;
+  }
+}
+.combo__services .package-price {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+}
+.combo__services .package-price__list-one, .combo__services .package-price__list-two {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 30px;
+  width: 30%;
+  height: 100%;
+  list-style: none;
+}
+@media (max-width: 767px) {
+  .combo__services .package-price__list-one, .combo__services .package-price__list-two {
+    width: calc(50% - 15px);
+  }
+}
+.combo__services .package-price .plus {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: right;
+}
+@media (max-width: 767px) {
+  .combo__services .package-price .plus {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+.combo__services .package-price__list-two {
+  align-items: flex-end;
+}
+.combo__services .package-price__paragraph {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .combo__services .package-price__paragraph {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1024px) {
+  .combo__services .package-price__paragraph {
+    font-size: 32px;
+  }
+}
+.combo__services .package-price__paragraph--first::after {
+  content: "сессии регрессии";
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .combo__services .package-price__paragraph--first::after {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.combo__services .package-price__paragraph--second {
+  align-self: flex-end;
+}
+.combo__services .package-price__paragraph--second::after {
+  content: "руб";
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .combo__services .package-price__paragraph--second::after {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.combo__services .package-price__paragraph--third::after {
+  content: "сессии по Методу";
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 1024px) {
+  .combo__services .package-price__paragraph--third::after {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.combo__services .package-price__paragraph--four {
+  align-self: flex-start;
+  text-align: left;
+  text-decoration: line-through;
+}
+.combo__services .package-price__paragraph--four::before {
+  content: "вместо";
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+}
+@media (max-width: 1024px) {
+  .combo__services .package-price__paragraph--four::before {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.numerology {
+  display: flex;
+  flex-flow: row wrap;
+}
+.numerology__title {
+  margin-bottom: 50px;
+}
+@media (max-width: 1024px) {
+  .numerology__title {
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .numerology__title {
+    margin-bottom: 0;
+  }
+}
+.numerology__services {
+  grid-template-areas: "numerology-express numerology-full";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  justify-content: stretch;
+  width: 100%;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .numerology__services {
+    grid-template-areas: "numerology-express" "numerology-full";
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .numerology__services {
+    padding-top: 0;
+  }
+}
+.numerology .numerology-express, .numerology .numerology-full {
+  display: grid;
+  grid-template-areas: "title" "description" "session-price" "button";
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 2fr min-content min-content;
+  justify-content: stretch;
+  align-items: stretch;
+  row-gap: 50px;
+}
+@media (max-width: 1024px) {
+  .numerology .numerology-express, .numerology .numerology-full {
+    grid-template-rows: 50px 1fr min-content min-content;
+    row-gap: 25px;
+  }
+}
+.numerology .numerology-express__title, .numerology .numerology-full__title {
+  grid-area: title;
+  text-decoration: none;
+}
+.numerology .numerology-express .description, .numerology .numerology-full .description {
+  height: 100%;
+  grid-area: description;
+  flex-flow: column wrap;
+  align-content: flex-start;
+}
+.numerology .numerology-express .description__list, .numerology .numerology-full .description__list {
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+.numerology .numerology-express .description__item, .numerology .numerology-full .description__item {
+  width: 100%;
+}
+.numerology .numerology-express .session-price, .numerology .numerology-full .session-price {
+  grid-area: session-price;
+}
+@media (max-width: 1024px) {
+  .numerology .numerology-express .session-price, .numerology .numerology-full .session-price {
+    max-width: 400px;
+    justify-self: center;
+  }
+}
+.numerology .numerology-express .session-price__paragraph, .numerology .numerology-full .session-price__paragraph {
+  content: " руб";
+}
+.numerology .numerology-express__button, .numerology .numerology-full__button {
+  grid-area: button;
+}
+.numerology .numerology-full .description {
+  height: 100%;
+  grid-area: description;
+}
+.numerology .numerology-full .description__list {
+  flex-flow: column wrap;
+  justify-content: stretch;
+  align-content: flex-start;
+}
+.numerology .numerology-full .description__item {
+  width: 100%;
+}
+.numerology .numerology-full .description__item:last-child::before {
+  content: "+ ";
+  z-index: 1;
+}
+.numerology .numerology-full .description .session-price {
+  grid-area: session-price;
+}
+@media (max-width: 1024px) {
+  .numerology .numerology-full .description .session-price {
+    max-width: 400px;
+    height: auto;
+    justify-self: center;
+  }
+}
+.numerology .numerology-full .description .session-price__paragraph {
+  content: " руб";
+}
+.birthday__title {
+  min-height: 150px;
+}
+@media (max-width: 1024px) {
+  .birthday__title {
+    min-height: 100px;
+  }
+}
+.birthday__services {
+  display: grid;
+  grid-template-areas: "session-one session-two package-price";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  row-gap: 50px;
+  justify-content: stretch;
+  margin-bottom: 50px;
+}
+@media (max-width: 1024px) {
+  .birthday__services {
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+    row-gap: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .birthday__services {
+    grid-template-areas: "session-one session-two" "package-price package-price";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, min-content);
+  }
+}
+.birthday .session-one, .birthday .package-price, .birthday .session-two {
+  grid-area: session-one;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  height: 100%;
+}
+.birthday .session-one .plus, .birthday .package-price .plus, .birthday .session-two .plus {
+  font-size: 48px;
+  line-height: 108%;
+  font-weight: 500;
+  font-family: "IBM Plex Serif", sans-serif;
+  text-align: center;
+  color: #3d3f4e;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .birthday .session-one .plus, .birthday .package-price .plus, .birthday .session-two .plus {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+.birthday .session-one__paragraph {
+  align-self: center;
+  margin: 0;
+}
+.birthday .session-two {
+  grid-area: session-two;
+}
+.birthday .session-two__paragraph {
+  align-self: center;
+  margin: 0;
+}
+.birthday .package-price {
+  grid-area: package-price;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+.birthday .package-price__paragraph::after {
+  content: " руб";
+}
 .footer {
   padding-top: 50px;
   display: flex;
@@ -441,7 +1053,6 @@
   .footer__title {
     font-size: 28px;
     line-height: 120%;
-    white-space: pre;
   }
 }
 .footer__title .br {

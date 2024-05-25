@@ -275,30 +275,215 @@
 
 .line {
   width: 100%;
+  margin-bottom: 100px;
   border: 1px solid $bg-color-dark;
+  @media (max-width: $tablet) {
+    margin-bottom: 50px;
+  }
 }
 
 .regression {
+  display: flex;
+  flex-flow: column wrap;
+  //grid-template-columns: 1fr;
+  //grid-template-rows: 100px 3fr 100px;
+  justify-content: stretch;
   width: 80%;
   margin: 0 10% 100px;
   @media (max-width: $tablet) {
+    //grid-template-rows: 50px 2fr min-content;
     width: 90%;
     margin: 0 5% 50px;
   }
   &__title {
+    //grid-area: title;
+    height: 100px;
     @include title;
     font-size: 36px;
     line-height: 42px;
     font-family: $font-family;
     text-align: left;
-    @media (max-width: $mobile) {
+    text-decoration: underline;
+    @media (max-width: $tablet) {
+      height: 50px;
       font-size: 24px;
       line-height: 20px;
     }
   }
+  &__services {
+    //grid-area: services;
+    display: grid;
+    grid-template-areas:
+      "description description description"
+      "duration session-price package-price";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr min-content;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: stretch;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      column-gap: 25px;
+      row-gap: 25px;
+      margin-bottom: 25px;
+    }
+    @media (max-width: $mobile) {
+      grid-template-areas:
+        "description description"
+        "duration session-price"
+        "package-price package-price";
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, min-content);
+      padding-top: 25px;
+    }
+  }
+  .reg-description {
+    grid-area: description;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    height: min-content;
+    padding: 30px 30px 40px;
+    background-color: $bg-color-accent;
+    border: 3px solid $bg-color-dark;
+    border-radius: 5px;
+    @media (max-width: $mobile) {
+      padding: 10px 10px 20px;
+    }
+    &__title {
+      display: flex;
+      align-self: flex-start;
+      width: 100%;
+      margin-bottom: 25px;
+      @include title;
+      font-size: 28px;
+      line-height: 40px;
+      font-family: $font-family;
+      text-align: left;
+      @media (max-width: $tablet) {
+        margin-bottom: 10px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: center;
+      row-gap: 20px;
+      width: 100%;
+      height: auto;
+    }
+    &__item {
+      display: flex;
+      width: calc(1 / 2 * 100% - (1 - 1 / 2) * 30px);
+      @include paragraph;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 500;
+      text-align: left;
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+      &::before {
+        content: "\2022 \2002";
+      }
+    }
+  }
+  .reg-duration {
+    @extend .reg-description;
+    grid-area: duration;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+    height: 100%;
+    &__title {
+      @extend .reg-description__title;
+    }
+    &__paragraph {
+      @include title;
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      text-align: left;
+      font-family: $font-family;
+      @media (max-width: $tablet) {
+        font-size: 32px;
+      }
+      &::after {
+        content: "\2002часа";
+        font-size: 20px;
+        line-height: 24px;
+        @media (max-width: $tablet) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  .reg-session-price {
+    @extend .reg-description;
+    @extend .reg-duration;
+    grid-area: session-price;
+    &__title {
+      @extend .reg-description__title;
+    }
+    &__paragraph {
+      @extend .reg-duration__paragraph;
+      &::after {
+        content: "\2002руб";
+      }
+    }
+  }
+  .reg-package-price {
+    @extend .reg-description;
+    @extend .reg-duration;
+    grid-area: package-price;
+    &__title {
+      @extend .reg-description__title;
+    }
+    &__paragraph {
+      @extend .reg-session-price__paragraph;
+      &::after {
+        content: "руб";
+      }
+      &--last {
+        align-self: flex-end;
+        text-align: right;
+        text-decoration: line-through;
+        &::before {
+          content: "вместо";
+          display: inline-block;
+          font-size: 20px;
+          line-height: 24px;
+          text-decoration: none;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        &::after {
+          content: "";
+        }
+      }
+    }
+  }
   &__button {
+    //grid-area: button;
     display: flex;
     justify-content: center;
+    min-height: 100px;
+    @media (max-width: $tablet) {
+      min-height: 80px;
+    }
+    @media (max-width: $mobile) {
+      min-height: 50px;
+    }
   }
   &__link {
     @include services-buttons;
@@ -309,6 +494,86 @@
   @extend .regression;
   &__title {
     @extend .regression__title;
+  }
+  &__services {
+    @extend .regression__services;
+  }
+  .leg-description {
+    @extend .reg-description;
+    background-color: $bg-color-dark;
+    &__title {
+      @extend .reg-description__title;
+      color: $text-light;
+    }
+    &__list {
+      @extend .reg-description__list;
+    }
+    &__item {
+      @extend .reg-description__item;
+      color: $text-light;
+      &::before {
+        content: "\2022 \2002";
+      }
+    }
+  }
+  .leg-duration {
+    @extend .reg-duration;
+    color: $text-light;
+    background-color: $bg-color-dark;
+    &__title {
+      @extend .reg-duration__title;
+      color: $text-light;
+    }
+    &__paragraph {
+      @extend .reg-duration__paragraph;
+      color: $text-light;
+      &::after {
+        content: "\2002минут";
+      }
+    }
+  }
+  .leg-session-price {
+    @extend .reg-session-price;
+    background-color: $bg-color-dark;
+    &__title {
+      @extend .reg-session-price__title;
+      color: $text-light;
+    }
+    &__paragraph {
+      @extend .reg-session-price__paragraph;
+      color: $text-light;
+    }
+  }
+  .leg-package-price {
+    @extend .reg-package-price;
+    background-color: $bg-color-dark;
+    &__title {
+      @extend .reg-package-price__title;
+      color: $text-light;
+    }
+    &__paragraph {
+      @extend .reg-package-price__paragraph;
+      color: $text-light;
+      &--last {
+        align-self: flex-end;
+        text-align: right;
+        text-decoration: line-through;
+        &::after {
+          content: "";
+        }
+        &::before {
+          content: "вместо";
+          display: inline-block;
+          font-size: 20px;
+          line-height: 24px;
+          text-decoration: none;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
   }
   &__button {
     @extend .regression__button;
@@ -325,6 +590,112 @@
   &__title {
     @extend .regression__title;
   }
+  &__services {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 100%;
+    height: min-content;
+    padding: 30px 30px 40px;
+    margin-bottom: 50px;
+    background-color: $bg-color-accent;
+    border: 3px solid $bg-color-dark;
+    border-radius: 5px;
+    @media (max-width: $tablet) {
+      margin-bottom: 25px;
+    }
+    .package-price {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      height: min-content;
+      &__list-one {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: flex-start;
+        row-gap: 30px;
+        width: calc(1 / 2 * 60%);
+        height: 100%;
+        list-style: none;
+        @media (max-width: $mobile) {
+          width: calc(1 / 2 * 100% - (1 / 2) * 30px);
+        }
+      }
+      .plus {
+        @include title;
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 700;
+        font-family: $font-family;
+        text-align: right;
+      }
+      &__list-two {
+        @extend .package-price__list-one;
+        align-items: flex-end;
+      }
+      &__paragraph {
+        @include title;
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 700;
+        font-family: $font-family;
+        text-align: left;
+        @media (max-width: $tablet) {
+          font-size: 32px;
+        }
+        &--first::after {
+          content: "сессии регрессии";
+          font-size: 20px;
+          line-height: 24px;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        &--second {
+          align-self: flex-end;
+          &::after {
+            content: "руб";
+            font-size: 20px;
+            line-height: 24px;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+        &--third::after {
+          content: "сессии по Методу";
+          font-size: 20px;
+          line-height: 24px;
+          @media (max-width: $tablet) {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+        &--four {
+          align-self: flex-start;
+          text-align: left;
+          text-decoration: line-through;
+          &::before {
+            content: "вместо";
+            display: inline-block;
+            font-size: 20px;
+            line-height: 24px;
+            text-decoration: none;
+            @media (max-width: $tablet) {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
   &__button {
     @extend .regression__button;
   }
@@ -335,16 +706,153 @@
 
 .numerology {
   @extend .regression;
+  @extend .legalization;
+  display: flex;
+  flex-flow: row wrap;
   &__title {
     @extend .regression__title;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      margin-bottom: 25px;
+    }
+    @media (max-width: $tablet) {
+      margin-bottom: 0;
+    }
   }
-  &__button {
-    @extend .regression__button;
+  &__services {
+    @extend .regression__services;
+    grid-template-areas: "numerology-express numerology-full";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 50px;
+    justify-content: stretch;
+    width: 100%;
+    margin: 0;
+    @media (max-width: $tablet) {
+      grid-template-areas:
+        "numerology-express"
+        "numerology-full";
+      grid-template-columns: 1fr;
+      row-gap: 25px;
+    }
+    @media (max-width: $tablet) {
+      padding-top: 0;
+    }
   }
-  &__link {
-    @extend .regression__link;
-    color: $text-light;
-    background-color: $bg-color-dark;
+  .numerology-express {
+    display: grid;
+    grid-template-areas:
+      "title"
+      "description"
+      "session-price"
+      "button";
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 2fr min-content min-content;
+    justify-content: stretch;
+    align-items: stretch;
+    row-gap: 50px;
+    @media (max-width: $tablet) {
+      grid-template-rows: 50px 1fr min-content min-content;
+      row-gap: 25px;
+    }
+    &__title {
+      @extend .regression__title;
+      grid-area: title;
+      text-decoration: none;
+    }
+    .description {
+      @extend .leg-description;
+      height: 100%;
+      grid-area: description;
+      flex-flow: column wrap;
+      align-content: flex-start;
+      &__title {
+        @extend .leg-description__title;
+      }
+      &__list {
+        @extend .leg-description__list;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+      }
+      &__item {
+        @extend .leg-description__item;
+        width: 100%;
+      }
+    }
+    .session-price {
+      @extend .leg-session-price;
+      grid-area: session-price;
+      @media (max-width: $tablet) {
+        max-width: 400px;
+        justify-self: center;
+      }
+      &__title {
+        @extend .leg-session-price__title;
+      }
+      &__paragraph {
+        @extend .leg-session-price__paragraph;
+        content: "\2002руб";
+      }
+    }
+    &__button {
+      @extend .legalization__button;
+      grid-area: button;
+    }
+    &__link {
+      @extend .legalization__link;
+    }
+  }
+
+  .numerology-full {
+    @extend .numerology-express;
+    &__title {
+      @extend .numerology-express__title;
+    }
+    .description {
+      @extend .leg-description;
+      height: 100%;
+      grid-area: description;
+      &__title {
+        @extend .leg-description__title;
+      }
+      &__list {
+        @extend .leg-description__list;
+        flex-flow: column wrap;
+        justify-content: stretch;
+        align-content: flex-start;
+      }
+      &__item {
+        @extend .leg-description__item;
+        width: 100%;
+        &:last-child::before {
+          content: "+\2002";
+          z-index: 1;
+        }
+      }
+      .session-price {
+        @extend .leg-session-price;
+        grid-area: session-price;
+        @media (max-width: $tablet) {
+          max-width: 400px;
+          height: auto;
+          justify-self: center;
+        }
+        &__title {
+          @extend .leg-session-price__title;
+        }
+        &__paragraph {
+          @extend .leg-session-price__paragraph;
+          content: "\2002руб";
+        }
+      }
+    }
+    &__button {
+      @extend .numerology-express__button;
+    }
+    &__link {
+      @extend .numerology-express__link;
+    }
   }
 }
 
@@ -352,6 +860,81 @@
   @extend .regression;
   &__title {
     @extend .regression__title;
+    min-height: 150px;
+    @media (max-width: $tablet) {
+      min-height: 100px;
+    }
+  }
+  &__services {
+    display: grid;
+    grid-template-areas: "session-one session-two package-price";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: stretch;
+    margin-bottom: 50px;
+    @media (max-width: $tablet) {
+      column-gap: 25px;
+      row-gap: 25px;
+      margin-bottom: 25px;
+    }
+    @media (max-width: $mobile) {
+      grid-template-areas:
+        "session-one session-two"
+        "package-price package-price";
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, min-content);
+    }
+  }
+  .session-one {
+    @extend .reg-description;
+    grid-area: session-one;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    height: 100%;
+    .plus {
+      @include title;
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 700;
+      font-family: $font-family;
+      text-align: left;
+    }
+    &__paragraph {
+      @extend .reg-description__title;
+      align-self: center;
+      margin: 0;
+    }
+  }
+  .session-two {
+    @extend .session-one;
+    grid-area: session-two;
+    &__paragraph {
+      @extend .reg-description__title;
+      align-self: center;
+      margin: 0;
+    }
+  }
+  .package-price {
+    @extend .session-one;
+    grid-area: package-price;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+    &__title {
+      @extend .reg-description__title;
+    }
+    &__paragraph {
+      @extend .reg-duration__paragraph;
+      &::after {
+        content: "\2002руб";
+      }
+    }
   }
   &__button {
     @extend .regression__button;
